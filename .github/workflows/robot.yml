@@ -1,0 +1,47 @@
+name: Run Robot Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  robot-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Setup Chrome and ChromeDriver
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y wget unzip
+        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get -f install -y
+        CHROME_VERSION=$(google-chrome --version | cut -d ' ' -f 3 | cut -d '.' -f 1)
+        wget -N https://chromedriver.storage.googleapis.com/$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION})/chromedriver_linux64.zip
+        unzip chromedriver_linux64.zip
+        sudo mv chromedriver /usr/bin/chromedriver
+        sudo chmod +x /usr/bin/chromedriver
+        export PATH=$PATH:/usr/bin/chromedriver
+
+    - name: Run Robot tests
+      run: |
+        mkdir -p reports
+        robot --outputdir reports tests/
+
+    - name: Upload test reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: robot-reports
+        path: reports/

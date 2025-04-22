@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.10.12 on darwin)" generated="2025-04-22T20:24:06.487048" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="/Users/vothithao/Desktop/monhoc/nam4/ki2.4/kiemthupm/Project_RobotFramework/tests">
+<suite id="s1-s1" name="Dangky" source="/Users/vothithao/Desktop/monhoc/nam4/ki2.4/kiemthupm/Project_RobotFramework/tests/dangky.robot">
+<test id="s1-s1-t1" name="[Module 1-1] Đăng ký với Email và Mật khẩu hợp lệ" line="6">
+<kw name="Open Browser To Login Page" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-22T20:24:06.595331" level="INFO">Opening browser 'Chrome' to base url 'https://automationexercise.com/signup'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-22T20:24:06.594865" elapsed="2.318950"/>
+</kw>
+<status status="PASS" start="2025-04-22T20:24:06.594460" elapsed="2.325587"/>
+</kw>
+<kw name="Enter Signup Info" owner="keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-22T20:24:08.928966" level="INFO">Typing text 'thuthao' into text field 'name=name'.</msg>
+<arg>name=name</arg>
+<arg>${VALID_dk_U}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-22T20:24:08.927315" elapsed="6.746111"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-22T20:24:15.673735" level="INFO">Typing text 'vthutha1@gmail.com' into text field 'css=input[data-qa="signup-email"]'.</msg>
+<arg>css=input[data-qa="signup-email"]</arg>
+<arg>${VALID_dk_G}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-22T20:24:15.673567" elapsed="0.033252"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-22T20:24:15.707101" level="INFO">Clicking button 'css=button[data-qa="signup-button"]'.</msg>
+<arg>css=button[data-qa="signup-button"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-22T20:24:15.706955" elapsed="2.124146"/>
+</kw>
+<status status="PASS" start="2025-04-22T20:24:08.926300" elapsed="8.905289"/>
+</kw>
+<kw name="Check Text At XPath" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-04-22T20:24:28.150778" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-22T20:24:28.151001" level="FAIL">Element '//h2/b' not visible after 10 seconds.</msg>
+<arg>${xpath}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-04-22T20:24:17.833328" elapsed="10.319300">Element '//h2/b' not visible after 10 seconds.</status>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-22T20:24:28.152827" elapsed="0.000025"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>${expected_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2025-04-22T20:24:28.152922" elapsed="0.000015"/>
+</kw>
+<arg>//h2/b</arg>
+<arg>ENTER ACCOUNT INFORMATION</arg>
+<status status="FAIL" start="2025-04-22T20:24:17.832365" elapsed="10.320716">Element '//h2/b' not visible after 10 seconds.</status>
+</kw>
+<kw name="Fill Account Information" owner="keywords">
+<status status="NOT RUN" start="2025-04-22T20:24:28.153264" elapsed="0.000023"/>
+</kw>
+<kw name="Click Create Account Button" owner="keywords">
+<status status="NOT RUN" start="2025-04-22T20:24:28.153392" elapsed="0.000016"/>
+</kw>
+<kw name="Check Text At XPath" owner="keywords">
+<arg>//h2/b</arg>
+<arg>ACCOUNT CREATED!</arg>
+<status status="NOT RUN" start="2025-04-22T20:24:28.153501" elapsed="0.000019"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<arg>https://automationexercise.com/account_created</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="NOT RUN" start="2025-04-22T20:24:28.153602" elapsed="0.000016"/>
+</kw>
+<kw name="Check Text At XPath" owner="keywords">
+<arg>//p[text()="Congratulations! Your new account has been successfully created!"]</arg>
+<arg>Congratulations! Your new account has been successfully created!</arg>
+<status status="NOT RUN" start="2025-04-22T20:24:28.153713" elapsed="0.000015"/>
+</kw>
+<kw name="Check Text At XPath" owner="keywords">
+<arg>//p[text()="You can now take advantage of member privileges to enhance your online shopping experience with us."]</arg>
+<arg>You can now take advantage of member privileges to enhance your online shopping experience with us.</arg>
+<status status="NOT RUN" start="2025-04-22T20:24:28.153825" elapsed="0.000015"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-04-22T20:24:28.153930" elapsed="0.000019"/>
+</kw>
+<tag>dangky</tag>
+<tag>hop_le</tag>
+<status status="FAIL" start="2025-04-22T20:24:06.593926" elapsed="21.560147">Element '//h2/b' not visible after 10 seconds.</status>
+</test>
+<test id="s1-s1-t2" name="[Module 1-2] Đăng ký với Email đã tồn tại" line="22">
+<kw name="Open Browser To Login Page" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-22T20:24:28.154811" level="INFO">Opening browser 'Chrome' to base url 'https://automationexercise.com/signup'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-22T20:24:28.154676" elapsed="1.529195"/>
+</kw>
+<status status="PASS" start="2025-04-22T20:24:28.154528" elapsed="1.529650"/>
+</kw>
+<kw name="Enter Signup Info" owner="keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-22T20:24:29.685166" level="INFO">Typing text 'thuthao' into text field 'name=name'.</msg>
+<arg>name=name</arg>
+<arg>${VALID_dk_U}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-22T20:24:29.684918" elapsed="1.941081"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-22T20:24:31.626354" level="INFO">Typing text 'vthutha1@gmail.com' into text field 'css=input[data-qa="signup-email"]'.</msg>
+<arg>css=input[data-qa="signup-email"]</arg>
+<arg>${VALID_dk_G}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-22T20:24:31.626162" elapsed="0.034554"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-22T20:24:31.661071" level="INFO">Clicking button 'css=button[data-qa="signup-button"]'.</msg>
+<arg>css=button[data-qa="signup-button"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-22T20:24:31.660884" elapsed="0.035611"/>
+</kw>
+<status status="PASS" start="2025-04-22T20:24:29.684580" elapsed="2.012009"/>
+</kw>
+<kw name="Check Error Message Should Appear" owner="keywords">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${expected_text}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-22T20:24:31.697060" elapsed="1.380939"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-22T20:24:33.089782" level="INFO">${txt} = Email Address already exist!</msg>
+<var>${txt}</var>
+<arg>xpath=//p[contains(text(),"${expected_text}")]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-22T20:24:33.078150" elapsed="0.011668"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${txt}</arg>
+<arg>${expected_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-22T20:24:33.089943" elapsed="0.000335"/>
+</kw>
+<arg>Email Address already exist!</arg>
+<status status="PASS" start="2025-04-22T20:24:31.696810" elapsed="1.393614"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-22T20:24:33.090548" elapsed="0.071761"/>
+</kw>
+<tag>dangky</tag>
+<tag>ton_tai</tag>
+<status status="PASS" start="2025-04-22T20:24:28.154231" elapsed="5.008264"/>
+</test>
+<test id="s1-s1-t3" name="[Module 1-3] Đăng ký với email sai định dạng" line="30">
+<kw name="Open Browser To Login Page" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-22T20:24:33.163349" level="INFO">Opening browser 'Chrome' to base url 'https://automationexercise.com/signup'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-22T20:24:33.163206" elapsed="1.561991"/>
+</kw>
+<status status="PASS" start="2025-04-22T20:24:33.163021" elapsed="1.562559"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-22T20:24:34.727107" level="INFO">Typing text 'thuthao' into text field 'name=name'.</msg>
+<arg>name=name</arg>
+<arg>${VALID_dk_U}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-22T20:24:34.726525" elapsed="1.116050"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-22T20:24:35.843092" level="INFO">Typing text 'vohutha1@gmail' into text field 'css=input[data-qa="signup-email"]'.</msg>
+<arg>css=input[data-qa="signup-email"]</arg>
+<arg>${VALID_dk_G2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-22T20:24:35.842822" elapsed="0.029529"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-22T20:24:35.872723" level="INFO">Clicking button 'css=button[data-qa="signup-button"]'.</msg>
+<arg>css=button[data-qa="signup-button"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-22T20:24:35.872561" elapsed="0.708708"/>
+</kw>
+<kw name="Check Error Message Should Appear" owner="keywords">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2025-04-22T20:24:46.826853" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-22T20:24:46.827004" level="FAIL">Text 'Invalid email address' did not appear in 10 seconds.</msg>
+<arg>${expected_text}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="FAIL" start="2025-04-22T20:24:36.582418" elapsed="10.244714">Text 'Invalid email address' did not appear in 10 seconds.</status>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${txt}</var>
+<arg>xpath=//p[contains(text(),"${expected_text}")]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-22T20:24:46.827258" elapsed="0.000026"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${txt}</arg>
+<arg>${expected_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2025-04-22T20:24:46.827353" elapsed="0.000014"/>
+</kw>
+<arg>Invalid email address</arg>
+<status status="FAIL" start="2025-04-22T20:24:36.581969" elapsed="10.245457">Text 'Invalid email address' did not appear in 10 seconds.</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-04-22T20:24:46.827535" elapsed="0.000016"/>
+</kw>
+<tag>dangky</tag>
+<tag>sai_dinh_dang</tag>
+<status status="FAIL" start="2025-04-22T20:24:33.162659" elapsed="13.665019">Text 'Invalid email address' did not appear in 10 seconds.</status>
+</test>
+<status status="FAIL" start="2025-04-22T20:24:06.498193" elapsed="40.329842"/>
+</suite>
+<status status="FAIL" start="2025-04-22T20:24:06.487650" elapsed="40.340703"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="2" skip="0">dangky</stat>
+<stat pass="0" fail="1" skip="0">hop_le</stat>
+<stat pass="0" fail="1" skip="0">sai_dinh_dang</stat>
+<stat pass="1" fail="0" skip="0">ton_tai</stat>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="1" fail="2" skip="0">Tests</stat>
+<stat name="Dangky" id="s1-s1" pass="1" fail="2" skip="0">Tests.Dangky</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-04-22T20:24:06.592307" level="ERROR">Error in file '/Users/vothithao/Desktop/monhoc/nam4/ki2.4/kiemthupm/Project_RobotFramework/resources/keywords.robot' on line 3: Processing variable file './variables.robot' failed: Importing variable file './variables.robot' failed: ModuleNotFoundError: No module named './variables'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /Users/vothithao/Desktop/monhoc/nam4/ki2.4/kiemthupm/Project_RobotFramework/venv/bin
+  /Users/vothithao/.pyenv/versions/3.10.12/lib/python310.zip
+  /Users/vothithao/.pyenv/versions/3.10.12/lib/python3.10
+  /Users/vothithao/.pyenv/versions/3.10.12/lib/python3.10/lib-dynload
+  /Users/vothithao/Desktop/monhoc/nam4/ki2.4/kiemthupm/Project_RobotFramework/venv/lib/python3.10/site-packages</msg>
+</errors>
+</robot>
