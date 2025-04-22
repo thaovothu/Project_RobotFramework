@@ -66,3 +66,29 @@ robot --outputdir reports themsanpham.robot
 robot --outputdir reports timkiem.robot
 robot --outputdir reports xemgiohang.robot
 
+
+
+
+Nhận xét kết quả sau khi chạy:
+
+Tổng Quan Kết Quả Test
+Tổng số test: 14
+Số test pass: 12
+Số test fail: 2
+-->Tỷ lệ pass: 85.7% — khá tốt
+-->Thời gian thực thi: 2 phút 30 giây
+
+Chi Tiết 2 Test Case Bị Fail
+1. Test đăng ký với email sai định dạng (sai_dinh_dang)
+- Dự kiến: Hệ thống hiển thị lỗi định dạng email không hợp lệ 'Invalid email address'
+- Thực tế: Hệ thống không báo lỗi, vẫn chuyển sang trang đăng ký hợp lệ.
+--> Nhận xét: Đây là lỗi logic nghiêm trọng phía backend hoặc frontend vì thiếu kiểm tra định dạng email, dễ gây rác dữ liệu trong hệ thống.
+
+**Lỗi thứ 2 sinh ra vì sai sót của lỗi thứ nhất
+
+2. Test đăng nhập với email đã đăng ký nhưng sai định dạng (sai_dinh_dang)
+- Dự kiến: Hiển thị thông báo lỗi định dạng email không hợp lệ 'Your email is in the wrong format!'
+- Thực tế: Hệ thống vẫn chuyển đến trang chủ — nghĩa là đăng nhập thành công dù Email sai định dạng .
+--> Nhận xét: Đây là lỗ hổng bảo mật, nếu không kiểm soát chặt chẽ có thể cho phép truy cập trái phép.
+
+
