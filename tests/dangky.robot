@@ -10,6 +10,8 @@ Resource    ../resources/variables.robot
     Enter Signup Info
     Check Text At XPath    //h2/b        ENTER ACCOUNT INFORMATION
     Fill Account Information
+    Execute JavaScript    document.querySelectorAll('iframe, div[id^="aswift"], ins.adsbygoogle').forEach(e => e.style.display = 'none');
+    Sleep    1s
     Click Create Account Button
     Check Text At XPath    //h2/b        ACCOUNT CREATED!
     Location Should Be     https://automationexercise.com/account_created
@@ -21,7 +23,7 @@ Resource    ../resources/variables.robot
 
 [Module 1-2] Đăng ký với Email đã tồn tại
     [Tags]    dangky    ton_tai
-    
+
     Open Browser To Login Page
     Enter Signup Info
     Check Error Message Should Appear    Email Address already exist!
