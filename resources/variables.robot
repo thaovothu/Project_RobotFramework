@@ -1,7 +1,7 @@
 *** Variables ***
 ${URL}                https://automationexercise.com/signup
 ${BROWSER}            Chrome
-${VALID_dk_G}         thaothuvo2@gmail.com
+${VALID_dk_G}         thaothuvo3@gmail.com
 ${VALID_dk_G2}        vohutha1@gmail
 ${VALID_dn_G3}        12@ahihi
 ${VALID_dk_U}         thuthao
