@@ -66,6 +66,11 @@ robot --outputdir reports themsanpham.robot
 robot --outputdir reports timkiem.robot
 robot --outputdir reports xemgiohang.robot
 
+**LƯU Ý: ở phần resources/variables.robot em đã đổi biến
+    ${VALID_dk_G}         thaothuvo2@gmail.com
+--> ${VALID_dk_G}         thaothuvo3@gmail.com
+Vì muốn đăng ký thành công phải nhập Email mới, và mỗi lần test phải thay đổi giá trị biến ${VALID_dk_G}
+Nếu không đổi sẽ dẫn đến testcase bị Fail vì đăng ký với Email đã tồn tại
 
 
 
@@ -80,6 +85,7 @@ Số test fail: 2
 
 Chi Tiết 2 Test Case Bị Fail
 1. Test đăng ký với email sai định dạng (sai_dinh_dang)
+Nhập nội dung sau vào trường Email: vohutha1@gmail --> Sai định dạng Email
 - Dự kiến: Hệ thống hiển thị lỗi định dạng email không hợp lệ 'Invalid email address'
 - Thực tế: Hệ thống không báo lỗi, vẫn chuyển sang trang đăng ký hợp lệ.
 --> Nhận xét: Đây là lỗi logic nghiêm trọng phía backend hoặc frontend vì thiếu kiểm tra định dạng email, dễ gây rác dữ liệu trong hệ thống.
@@ -87,6 +93,8 @@ Chi Tiết 2 Test Case Bị Fail
 **Lỗi thứ 2 sinh ra vì sai sót của lỗi thứ nhất
 
 2. Test đăng nhập với email đã đăng ký nhưng sai định dạng (sai_dinh_dang)
+Tạo tài khoản thứ 2 có định dạng sai thành công và test chức năng đăng nhập
+Nhập nội dung sau vào trường Email: 12@ahihi --> Sai định dạng Email
 - Dự kiến: Hiển thị thông báo lỗi định dạng email không hợp lệ 'Your email is in the wrong format!'
 - Thực tế: Hệ thống vẫn chuyển đến trang chủ — nghĩa là đăng nhập thành công dù Email sai định dạng .
 --> Nhận xét: Đây là lỗ hổng bảo mật, nếu không kiểm soát chặt chẽ có thể cho phép truy cập trái phép.
