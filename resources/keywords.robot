@@ -7,57 +7,84 @@ Open Browser To Login Page
     Open Browser        ${URL}      ${BROWSER}
 
 Enter Login Info
-    Wait Until Element Is Visible    css=input[data-qa="login-email"]    timeout=10s
-    Input Text    css=input[data-qa="login-email"]    ${VALID_dk_G}
-    Input Text      css=input[data-qa="login-password"]    ${VALID_dk_P}
-    Click Button    css=button[data-qa="login-button"]
+    Wait Until Element Is Visible    id=username_l    timeout=10s
+    Input Text                       id=username_l    ${VALID_dn_UP}
+    Input Text                       id=password_l    ${VALID_dn_PP}
+    Click Element    id=btn_login
     Sleep    1s
-Enter Login Info Wrong
-    Input Text      css=input[data-qa="login-email"]       ${VALID_dk_G}
-    Input Text      css=input[data-qa="login-password"]    {VALID_P}
-    Click Button    css=button[data-qa="login-button"]
 
-Enter Login Email Wrong
-    Input Text      css=input[data-qa="login-email"]       ${VALID_dn_G3}
-    Input Text      css=input[data-qa="login-password"]    ${VALID_dn_P2}
-    Click Button    css=button[data-qa="login-button"]
+Enter Login Info Wrong_WW
+    Wait Until Element Is Visible    id=username_l    timeout=10s
+    Input Text                       id=username_l    ${VALID_dn_UW}
+    Input Text                       id=password_l    ${VALID_dn_PW}
+    Click Element    id=btn_login
+    Sleep    1s
 
-Check Text At XPath
-    [Arguments]    ${xpath}    ${expected_text}
-    Wait Until Element Is Visible    ${xpath}    10s
-    ${text}=       Get Text    ${xpath}
-    Should Be Equal As Strings    ${text}    ${expected_text}
+Enter Login Info Wrong_PW
+    Wait Until Element Is Visible    id=username_l    timeout=10s
+    Input Text                       id=username_l    ${VALID_dn_UP}
+    Input Text                       id=password_l    ${VALID_dn_PW}
+    Click Element    id=btn_login
+    Sleep    1s
+
+Enter Login Info Wrong_EW
+    Wait Until Element Is Visible    id=username_l    timeout=10s
+    Input Text                       id=username_l    ${VALID_dn_UE}
+    Input Text                       id=password_l    ${VALID_dn_PP}
+    Click Element    id=btn_login
+    Sleep    1s
+
+Enter Login Info Wrong_PE
+    Wait Until Element Is Visible    id=username_l    timeout=10s
+    Input Text                       id=username_l    ${VALID_dn_UP}
+    Input Text                       id=password_l    ${VALID_dn_PE}
+    Click Element    id=btn_login
+    Sleep    1s
+
+Enter Login Info Wrong_EE
+    Wait Until Element Is Visible    id=username_l    timeout=10s
+    Input Text                       id=username_l    ${VALID_dn_UE}
+    Input Text                       id=password_l    ${VALID_dn_PE}
+    Click Element    id=btn_login
+    Sleep    1s
+
+Enter Login Info Wrong_SP
+    Wait Until Element Is Visible    id=username_l    timeout=10s
+    Input Text                       id=username_l    ${VALID_dn_US}
+    Input Text                       id=password_l    ${VALID_dn_PP}
+    Click Element    id=btn_login
+    Sleep    1s
+
+Enter Login Info IconEyes
+    Input Text                       id=password_l    ${VALID_dn_PP}
+    ${type_before}=    Get Element Attribute    id=password_l    type
+    Should Be Equal As Strings    ${type_before}    password
+
+    Click Element    css=i.btn_show_hide_passw
+    Sleep    1s
+
+    ${type_after}=    Get Element Attribute    id=password_l    type
+    Should Be Equal As Strings    ${type_after}    text
+    Sleep    1s
 
 Check Error Message Should Appear
     [Arguments]    ${expected_text}
-    Wait Until Page Contains    ${expected_text}    timeout=10s
-    ${txt}=    Get Text    xpath=//p[contains(text(),"${expected_text}")]
-    Should Be Equal As Strings    ${txt}    ${expected_text}
-    
-Check Logo Image Is Displayed
-    Element Should Be Visible    xpath=//img[@alt="Website for automation practice"]
-    ${src}=    Get Element Attribute    xpath=//img[@alt="Website for automation practice"]    src
-    Should Contain    ${src}    /static/images/home/logo.png
+    Wait Until Page Contains Element    xpath=//div[contains(@class,"tooltipster-content")]/span    timeout=10s
+    Element Text Should Be    xpath=//div[contains(@class,"tooltipster-content")]/span    ${expected_text}
 
-Enter Signup Info
-    Input Text      name=name                             ${VALID_dk_U}
-    Input Text      css=input[data-qa="signup-email"]     ${VALID_dk_G}
-    Click Button    css=button[data-qa="signup-button"]
 
-Fill Account Information
-    Input Text    id=password        ${VALID_dk_P}
-    Input Text    id=first_name      ${VALID_dk_F}
-    Input Text    id=last_name       ${VALID_dk_L}
-    Input Text    id=company         ${VALID_dk_C}
-    Input Text    id=address1        ${VALID_dk_A1}
-    Input Text    id=address2        ${VALID_dk_A2}
-    Input Text    id=state           ${VALID_dk_S}
-    Input Text    id=city            ${VALID_dk_Ci}
-    Input Text    id=zipcode         ${VALID_dk_Z}
-    Input Text    id=mobile_number   ${VALID_dk_M}
+Check Logo Is Displayed
+    Element Should Be Visible    xpath=//a[@class="sidebar-brand d-flex align-items-center justify-content-center"]
+    ${text}=    Get Text    xpath=//a[@class="sidebar-brand d-flex align-items-center justify-content-center"]/div
+    Should Be Equal As Strings    ${text}    VRTOURISM
 
-Click Create Account Button
-    Wait Until Element Is Visible    css=button[data-qa="create-account"]    15s
-    Scroll Element Into View         css=button[data-qa="create-account"]
-    Sleep    2s
-    Click Button                     css=button[data-qa="create-account"]
+
+Check Sidebar Menus
+    Wait Until Page Contains Element    xpath=//a[@class="sidebar-brand d-flex align-items-center justify-content-center"]/div[contains(text(),'VRTOURISM')]    10s
+    Wait Until Page Contains Element    xpath=//span[contains(text(),'Bảng điều khiển')]    10s
+    Wait Until Page Contains Element    xpath=//span[contains(text(),'Thống kê')]    10s
+    Wait Until Page Contains Element    xpath=//span[contains(text(),'Tour du lịch ảo')]    10s
+    Wait Until Page Contains Element    xpath=//span[contains(text(),'Đa phương tiện')]    10s
+    Wait Until Page Contains Element    xpath=//span[contains(text(),'Xuất bản')]    10s
+    Wait Until Page Contains Element    xpath=//span[contains(text(),'Dữ liệu được thu thập')]    10s
+    Wait Until Page Contains Element    xpath=//span[contains(text(),'Quản trị viên')]    10s
