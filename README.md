@@ -52,7 +52,7 @@ Project_RobotFramework/
 │
 ├── requirements.txt
 └── README.md
-└── venv                       # Môi trường ảo, có hoặc không, nhưng ở đây em dùng MacOS nên em sẽ ưu tiên cài môi trường ảo
+
 
 
 
